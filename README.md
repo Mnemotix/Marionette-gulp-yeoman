@@ -4,7 +4,7 @@
 ## Overview
 L'objectif de ce tutoriel est d'apprendre à créer une simple application Backbone/Marionette en utilisant des outils de productivité tels que Yeoman/Gulp.
 
-### Installation
+### Step 1 - Installation
 
 #### Git
 
@@ -26,17 +26,28 @@ L'objectif de ce tutoriel est d'apprendre à créer une simple application Backb
 	npm install --global generator-gulp-webapp
 	
 
-### Application
-
-#### Initialisation
+#### Générer le squelette de l'application
 
 	mkdir my-webapp
 	cd my-webapp
 	yo gulp-webapp
-	
-#### Apprendre à utiliser Gulp
 
-##### Les commandes de base
+### Step 2 - Gulp
+
+#### Présentation
+[Gulp](http://gulpjs.com/) est un gestionnaire de build pour les projets Javascript.
+
+C'est un équivalent Javascript de Ant/Maven en Java. Gulp est le successeur direct d'un autre outil de build JS très connu : [Grunt](http://gruntjs.com/). La différence principale entre les deux se résume à la manière dont les tâches vont être résolues en interne. [Gulp est plus performant](http://tech.tmw.co.uk/2014/01/speedtesting-gulp-and-grunt/) sur les tâches complexes. Si ce sujet vous intéresse, voici [un article](http://www.hongkiat.com/blog/gulp-vs-grunt/) qui traite de ce sujet en profondeur.
+
+Tout comme Grunt, Gulp permet de définir des tâches, de les chaîner dans des workflows et de les exécuter. Gulp dispose de nombreux modules qui permettent de l'interfacer avec tous les outils modernes pour la création d'applications JS/HTML.
+
+Gulp permet notamment de compiler les fichiers Coffeescript/Less/SASS et les templates à la volée, de minifier les fichiers CSS et JS, de packager une distribution ``production-ready`` du projet, d'exécuter les tests, de valider le code Javascript avec JSLint, etc, etc. 
+
+La liste des plugins se trouve ici : <http://gulpjs.com/plugins/>
+
+Autre fonctionnalité très intéressante, Gulp permet d'excuter le projet directement dans un serveur NodeJS embarqué avec un système de watchers sur les fichiers du projet, ce qui permet un développement continu très confortable.
+
+#### Les commandes de base
 
 Exécution de la tâche "default"
 
@@ -58,9 +69,21 @@ Prévisualiser l'application en mode "production-ready"
 
 	gulp serve:dist
 
-#### Apprendre à utiliser Bower
+### Step 3 - Bower
 
-##### Les commandes de base
+#### Présentation
+Bower est un gestionnaire de dépendances.
+
+ Il donne accès très simplement à un très grand nombre de librairies Javascript, de frameworks JS/CSS/Web Fonts.
+ 
+ Chaque module Bower doit présenter un fichier ``package.json`` qui liste ses dépendances internes. Grâce à ce fichier, Bower sait résoudre l'abre de dépendances en entier. Il peut néanmoins y avoir quelques problèmes de compatibilité entre les versions des dépendances. Dans ce cas, ce sera à vous de spécifier quelle version vous voulez vour apparaître dans votre projet.
+ 
+ Bower se présente sous la forme d'une ligne de commande qui permet d'interagir avec le repository local de dépendance ou bien directement avec des repository distants, notamment Github. 
+ 
+ Les dépendances Bower se présentent toujours sous la forme :  
+``<package>#<version>``
+
+#### Les commandes de base
 Chercher une dépendance
 
 	bower search jquery*
